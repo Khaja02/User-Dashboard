@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
-import './App.css'; // Import your Tailwind CSS here
+import './App.css'; 
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -9,7 +9,7 @@ const App = () => {
   const [editedValues, setEditedValues] = useState({});
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [currentPageReactPaginate, setCurrentPageReactPaginate] = useState(0); // New state for react-paginate
+  const [currentPageReactPaginate, setCurrentPageReactPaginate] = useState(0); 
   const rowsPerPage = 10;
 
   useEffect(() => {
@@ -64,13 +64,13 @@ const App = () => {
 
   const handleEdit = (rowId) => {
     setEditableRowId(rowId);
-    // Initialize edited values with current row values
+   
     const rowToEdit = data.find((row) => row.id === rowId);
     setEditedValues(rowToEdit);
   };
 
   const handleSave = () => {
-    // Update the data with the edited values
+    
     const updatedData = data.map((row) =>
       row.id === editableRowId ? { ...row, name: editedValues.name } : row
     );
@@ -81,7 +81,7 @@ const App = () => {
   };
 
   const handleInputChange = (e, field) => {
-    // Update the edited values when input changes
+    
     setEditedValues({
       ...editedValues,
       [field]: e.target.value,
